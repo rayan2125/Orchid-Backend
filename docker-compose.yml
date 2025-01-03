@@ -1,0 +1,11 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"   # Expose port 3000
+    volumes:
+      - .:/src        # Sync your local files with the container for development
+    env_file:
+      - .env          # Load environment variables from .env file
