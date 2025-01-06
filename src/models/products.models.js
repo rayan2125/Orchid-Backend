@@ -1,8 +1,9 @@
-import { Sequelize, DataTypes } from 'sequelize';
+import {  DataTypes } from 'sequelize';
+import sequelize from '../db/connection.js';
 
-const sequelize = new Sequelize('sqlite::memory:');
 
-const ProductMaster = sequelize.define("product_master", {
+
+const ProductMaster = sequelize.define("ov_product_master", {
     product_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -61,9 +62,6 @@ const ProductMaster = sequelize.define("product_master", {
         defaultValue: DataTypes.NOW, // Default to the current timestamp
         onUpdate: DataTypes.NOW, // Automatically updates on modification
     },
-}, {
-    timestamps: false, // Disabling Sequelize's default `createdAt` and `updatedAt`
-    tableName: 'product_master', // Explicit table name
 });
 
 export default ProductMaster;

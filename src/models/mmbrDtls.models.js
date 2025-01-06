@@ -1,8 +1,9 @@
-import { Sequelize, DataTypes } from 'sequelize';
+import { DataTypes } from 'sequelize';
+import sequelize from '../db/connection.js';
 
-const sequelize = new Sequelize('sqlite::memory:');
 
-const MembersDetails = sequelize.define("members_details", {
+
+const MembersDetails = sequelize.define("ov_members_details", {
     member_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -35,15 +36,15 @@ const MembersDetails = sequelize.define("members_details", {
     },
     mobile_no: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     email_id: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     member_address: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     state: {
         type: DataTypes.STRING,
@@ -55,19 +56,19 @@ const MembersDetails = sequelize.define("members_details", {
     },
     coapplicant_name: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     coa_dob: {
         type: DataTypes.DATEONLY,
-        allowNull: false,
+        allowNull: true,
     },
     coa_mobile: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     coa_email_id: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     product_name: {
         type: DataTypes.STRING,
@@ -75,7 +76,7 @@ const MembersDetails = sequelize.define("members_details", {
     },
     offer_given: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull:true ,
     },
     membership_status: {
         type: DataTypes.ENUM('active', 'deactive', 'cancelled', 'refunded'),
@@ -83,7 +84,7 @@ const MembersDetails = sequelize.define("members_details", {
     },
 }, {
     timestamps: false, // Disabling Sequelize's default `createdAt` and `updatedAt`
-    tableName: 'members_details', // Explicit table name
+
 });
 
 export default MembersDetails;

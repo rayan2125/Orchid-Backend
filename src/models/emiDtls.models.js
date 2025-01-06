@@ -1,8 +1,9 @@
-import { Sequelize, DataTypes } from 'sequelize';
+import { DataTypes } from 'sequelize';
+import sequelize from '../db/connection.js';
 
-const sequelize = new Sequelize('sqlite::memory:');
 
-const EmiDetails = sequelize.define("emi_details", {
+
+const EmiDetails = sequelize.define("ov_emi_details", {
     emi_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -45,9 +46,7 @@ const EmiDetails = sequelize.define("emi_details", {
         type: DataTypes.DATEONLY,
         allowNull: false,
     },
-}, {
-    timestamps: false, // Disabling Sequelize's default `createdAt` and `updatedAt`
-    tableName: 'emi_details', // Explicit table name
-});
+}
+);
 
 export default EmiDetails;

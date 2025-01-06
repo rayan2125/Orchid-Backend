@@ -1,8 +1,9 @@
 import { Sequelize, DataTypes } from 'sequelize';
+import sequelize from '../db/connection.js';
 
-const sequelize = new Sequelize('sqlite::memory:');
 
-const ProductPrice = sequelize.define("product_price", {
+
+const ProductPrice = sequelize.define("ov_product_price", {
     price_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -37,9 +38,7 @@ const ProductPrice = sequelize.define("product_price", {
         type: DataTypes.STRING,
         allowNull: false,
     },
-}, {
-    timestamps: false, // Disabling Sequelize's default `createdAt` and `updatedAt`
-    tableName: 'product_price', // Explicit table name
-});
+}
+);
 
 export default ProductPrice;

@@ -1,8 +1,9 @@
-import { Sequelize, DataTypes } from 'sequelize';
+import { DataTypes } from 'sequelize';
+import sequelize from '../db/connection.js';
 
-const sequelize = new Sequelize('sqlite::memory:');
 
-const MembershipBookings = sequelize.define("membership_bookings", {
+
+const MembershipBookings = sequelize.define("ov_membership_bookings", {
     booking_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -109,9 +110,7 @@ const MembershipBookings = sequelize.define("membership_bookings", {
         type: DataTypes.STRING,
         allowNull: false,
     },
-}, {
-    timestamps: false, // Disabling Sequelize's default `createdAt` and `updatedAt`
-    tableName: 'membership_bookings', // Explicit table name
-});
+}
+ );
 
 export default MembershipBookings;

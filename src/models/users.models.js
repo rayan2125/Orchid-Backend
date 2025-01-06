@@ -1,8 +1,9 @@
-import { Sequelize, DataTypes } from 'sequelize';
+import {  DataTypes } from 'sequelize';
+import sequelize from '../db/connection.js';
 
-const sequelize = new Sequelize('sqlite::memory:');
 
-const Users = sequelize.define("users", {
+
+const Users = sequelize.define("ov_users", {
     user_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -42,9 +43,6 @@ const Users = sequelize.define("users", {
         allowNull: false,
         defaultValue: DataTypes.NOW, 
     },
-}, {
-    timestamps: false, 
-    tableName: 'users', 
-});
+} );
 
 export default Users;
