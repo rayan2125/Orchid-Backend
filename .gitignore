@@ -6,7 +6,7 @@ node_modules/
 
 # OS files
 .DS_Store
-
+src/config
 # Environment files
 .env
 package.json
